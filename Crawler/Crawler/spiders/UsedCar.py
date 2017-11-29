@@ -21,16 +21,16 @@ class UsedCarSpider(scrapy.Spider):
     def parse(self, response):
         subSite = response.css("li.clearFix")
 
-        for sub in subSite:
-            print(sub.css("img").xpath("@src").extract())   # image
-
-                # car_name
-                # car_photo
-                # car_model
-                # car_mile
-                # car_oil
-                # car_price
-                # car_year
-                # car_color
-                # car_number
-                # car_tran
+        with open("log", "a") as f:
+            for sub in subSite:
+                car_photo = sub.css("div > a > img").xpath("@src")[0].extract()   # image
+                subElement = sub.css("div > div > span")
+                car_oil = subElement[0].extract()[6:-7]
+                car_tran = subElement[1].extract()[6:-7]
+                car_color = subElement[2].extract()[6:-7]
+                car_number = subElement[3].extract()[6:-7]
+                car_model = sub.css("div > div").xpath("@title")[0].extract()
+                car_mile = sub.css('div[class="mile"]::text')[0].extract().strip()
+                car_year = sub.css('div[class="year"]::text')[0].extract().strip()
+                car_price = sub.css("div > span[class='num']::text")[0].extract().strip()
+                f.write("%-20s%10s%10s%10s%10s%10s%10s%10s\t%s\n" % (car_model, car_oil, car_year, car_mile, car_price, car_tran, car_color, car_number, car_photo))
