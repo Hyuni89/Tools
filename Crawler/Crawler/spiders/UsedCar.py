@@ -12,11 +12,21 @@ class UsedCarSpider(scrapy.Spider):
         SPARK_MODEL = ["3255", "2138"]
         MODEL = [MORNING_MODEL, SPARK_MODEL]
 
+        with open("log", "w") as f:
+            pass
+
         for i in range(2):
             for j in range(len(MODEL[i])):
                 tmpURL = URL % (BRAND[i], SERIES[i], MODEL[i][j])
                 self.log(tmpURL)
-                yield scrapy.Request(url=tmpURL, callback=self.parse)
+                yield scrapy.Request(url=tmpURL, callback=self.getPages)
+
+    def getPages(self, response):
+        pages = response.css(".pageList > a.page")
+        for i in range(len(pages.extract()) + 1):
+            tmpSubURL = response.url + "&Order=&Page=" + str(i + 1)
+            self.log(tmpSubURL)
+            yield scrapy.Request(url=tmpSubURL, callback=self.parse)
 
     def parse(self, response):
         subSite = response.css("li.clearFix")
@@ -33,4 +43,5 @@ class UsedCarSpider(scrapy.Spider):
                 car_mile = sub.css('div[class="mile"]::text')[0].extract().strip()
                 car_year = sub.css('div[class="year"]::text')[0].extract().strip()
                 car_price = sub.css("div > span[class='num']::text")[0].extract().strip()
-                f.write("%-20s%10s%10s%10s%10s%10s%10s%10s\t%s\n" % (car_model, car_oil, car_year, car_mile, car_price, car_tran, car_color, car_number, car_photo))
+                car_link = sub.css("div > div > a").xpath("@href")[0].extract()[1:]
+                f.write("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\n" % (car_model, car_oil, car_year, car_mile, car_price, car_tran, car_color, car_number, car_photo, "http://auto.danawa.com/usedcar/" + car_link))
