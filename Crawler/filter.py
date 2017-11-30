@@ -31,9 +31,18 @@ def num(l, w, t, n):
 
     ret = []
     for element in l:
-        if t == 0 and element[index] >= n: # >
+        number = -1
+        if w == 0 or w == 2:
+            number = int("".join(filter(str.isdigit, element[index])))
+        else:
+            if "." in element[index]:
+                number = int(element[index].split(".")[0])
+            else:
+                number = int(element[index])
+            
+        if t == 0 and number >= n: # >
             ret.append(element)
-        if t == 1 and element[index] <= n: # <
+        if t == 1 and number <= n: # <
             ret.append(element)
     
     return ret
