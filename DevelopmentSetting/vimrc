@@ -1,0 +1,46 @@
+" Default Setting
+set nu
+set si
+set ai
+set ci
+set tabstop=4
+set shiftwidth=4
+set hlsearch
+set incsearch
+set clipboard=unnamedplus
+syntax on
+
+" Key Map Setting
+map <C-b> :NERDTreeToggle<Enter>
+map <C-s> :w<Enter>
+map <C-q> :q!<Enter>
+map <A-Up> ddkkp
+map <A-Down> ddp
+execute "set <M-j>=\ej"
+map <M-j> <A-Down>
+execute "set <M-k>=\ek"
+map <M-k> <A-Up>
+
+" Plugin Setting
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'valloric/youcompleteme'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+
+call vundle#end()
+filetype plugin indent on
