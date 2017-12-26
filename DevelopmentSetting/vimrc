@@ -20,6 +20,7 @@ execute "set <M-j>=\ej"
 map <M-j> <A-Down>
 execute "set <M-k>=\ek"
 map <M-k> <A-Up>
+map <S-Tab> gt
 
 " Plugin Setting
 set nocompatible
