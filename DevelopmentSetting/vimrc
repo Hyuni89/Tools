@@ -12,6 +12,7 @@ syntax on
 
 " Key Map Setting
 map <C-b> :NERDTreeToggle<Enter>
+map <C-o> :TagbarToggle<Enter>
 map <C-s> :w<Enter>
 map <C-q> :q!<Enter>
 map <A-Up> ddkkp
@@ -20,7 +21,6 @@ execute "set <M-j>=\ej"
 map <M-j> <A-Down>
 execute "set <M-k>=\ek"
 map <M-k> <A-Up>
-map <S-Tab> gt
 
 " Plugin Setting
 set nocompatible
@@ -42,6 +42,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'valloric/youcompleteme'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-airline/vim-airline'
+Plugin 'keith/swift.vim'
 
 call vundle#end()
 filetype plugin indent on
+
+" Syntastic Setting
+let g:syntastic_cpp_compiler_options = '-std=c++11'
