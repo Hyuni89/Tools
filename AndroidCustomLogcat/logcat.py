@@ -26,10 +26,10 @@ def parseArgs():
                 processName = args[index]
             elif option == 'filter':
                 index += 1
-                filterList = args[index].split(',')
+                filterList = args[index].split('\|')
             elif option == 'capture':
                 index += 1
-                capture = args[index].split(',')
+                capture = args[index].split('\|')
         index += 1
 
 def getPID(cmd):
@@ -40,9 +40,12 @@ def getPID(cmd):
 
 	return tmp[1]
 
-def basicFilter(word):
-	if 'AKBD' in word:
+def basicFilter(word, cut):
+	if len(cut) == 0:
 		return True
+	for f in cut:
+		if f in word:
+			return True
 	return False
 
 def customFilter(pre, log, word):
@@ -86,8 +89,11 @@ try:
 			if (splitLog[4] == 'F' and splitLog[5] == 'DEBUG') or (splitLog[4] == 'E' and splitLog[5] == 'AndroidRuntime:'):
 				log = "\33[38;5;196m" + log + "\33[0m"
 			else:
-				if basicFilter(splitLog[5]) is False:
+				if len(filterList) == 0 and len(capture) != 0 and basicFilter(log, capture) is False:
 					continue
+				elif len(filterList) != 0 and basicFilter(splitLog[5], filterList) is False:
+					continue
+
 				if splitLog[4] == 'I':
 					for i in capture:
 						log = customFilter("\33[38;5;40m", log, i)
