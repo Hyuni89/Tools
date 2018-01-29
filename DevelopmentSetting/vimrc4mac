@@ -20,6 +20,9 @@ map <A-Down> ddp
 map ∆ <A-Down>
 map ˚ <A-Up>
 
+vnoremap < <gv
+vnoremap > >gv
+
 " Plugin Setting
 set nocompatible
 filetype off

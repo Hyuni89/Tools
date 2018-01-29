@@ -22,6 +22,9 @@ map <M-j> <A-Down>
 execute "set <M-k>=\ek"
 map <M-k> <A-Up>
 
+vnoremap < <gv
+vnoremap > >gv
+
 " Plugin Setting
 set nocompatible
 filetype off
