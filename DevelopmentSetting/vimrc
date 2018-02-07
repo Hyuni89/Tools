@@ -25,6 +25,11 @@ map <M-k> <A-Up>
 vnoremap < <gv
 vnoremap > >gv
 
+vnoremap [ xi[]<Esc>hp
+vnoremap ( xi()<Esc>hp
+vnoremap { xi{}<Esc>hp
+inoremap { {<Enter>}<Esc>k$a
+
 " Plugin Setting
 set nocompatible
 filetype off
