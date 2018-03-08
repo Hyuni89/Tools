@@ -11,8 +11,8 @@ set clipboard=unnamedplus
 syntax on
 
 " Key Map Setting
-map <C-b> :NERDTreeToggle<Enter>
-map <C-o> :TagbarToggle<Enter>
+map <C-k><C-b> :NERDTreeToggle<Enter>
+map <C-k><C-o> :TagbarToggle<Enter>
 map <C-s> :w<Enter>
 map <C-q> :q!<Enter>
 map <A-Up> ddkkp
