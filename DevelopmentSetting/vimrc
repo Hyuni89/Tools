@@ -8,6 +8,7 @@ set shiftwidth=4
 set hlsearch
 set incsearch
 set clipboard=unnamedplus
+set foldmethod=syntax
 syntax on
 
 " Key Map Setting
