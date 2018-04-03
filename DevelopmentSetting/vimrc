@@ -19,14 +19,14 @@ map <C-s> :w<Enter>
 map <C-q> :q!<Enter>
 
 " Move Line
-map <A-Up> ddkkp
-map <A-Down> ddp
+map <A-Up> :m .-2<Enter>==
+map <A-Down> :m .+1<Enter>==
 execute "set <M-j>=\ej"
-map <M-j> <A-Down>
 execute "set <M-k>=\ek"
+map <M-j> <A-Down>
 map <M-k> <A-Up>
-vnoremap <A-j> :'<,'>m '>+1<Enter>gv
-vnoremap <A-k> :'<,'>m '<-2<Enter>gv
+vnoremap <A-j> :'<,'>m '>+1<Enter>gv=gv
+vnoremap <A-k> :'<,'>m '<-2<Enter>gv=gv
 vmap <A-Up> <A-k>
 vmap <A-Down> <A-j>
 
