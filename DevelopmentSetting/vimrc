@@ -12,20 +12,29 @@ set foldmethod=syntax
 syntax on
 
 " Key Map Setting
+" PlugIn
 map <C-k><C-b> :NERDTreeToggle<Enter>
 map <C-k><C-o> :TagbarToggle<Enter>
 map <C-s> :w<Enter>
 map <C-q> :q!<Enter>
-map <A-Up> ddkkp
-map <A-Down> ddp
-execute "set <M-j>=\ej"
-map <M-j> <A-Down>
-execute "set <M-k>=\ek"
-map <M-k> <A-Up>
 
+" Move Line
+map <A-Up> :m .-2<Enter>==
+map <A-Down> :m .+1<Enter>==
+execute "set <M-j>=\ej"
+execute "set <M-k>=\ek"
+map <M-j> <A-Down>
+map <M-k> <A-Up>
+vnoremap <A-j> :'<,'>m '>+1<Enter>gv=gv
+vnoremap <A-k> :'<,'>m '<-2<Enter>gv=gv
+vmap <A-Up> <A-k>
+vmap <A-Down> <A-j>
+
+" Indent
 vnoremap < <gv
 vnoremap > >gv
 
+" Bracket
 vnoremap [ xi[]<Esc>hp
 vnoremap ( xi()<Esc>hp
 vnoremap { xi{}<Esc>hp
