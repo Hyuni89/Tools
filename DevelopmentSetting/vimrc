@@ -52,6 +52,7 @@ Plugin 'valloric/youcompleteme'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'keith/swift.vim'
+Plugin 'udalov/kotlin-vim'
 
 call vundle#end()
 filetype plugin indent on
