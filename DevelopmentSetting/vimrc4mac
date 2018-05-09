@@ -17,6 +17,7 @@ syntax on
 map <C-k><C-b> :NERDTreeToggle<Enter>
 map <C-k><C-o> :TagbarToggle<Enter>
 nnoremap <C-k><C-m> :MarkdownPreview<Enter>
+nnoremap <C-k><C-m><C-m> :MarkdownPreviewStop<Enter>
 
 " Save, Quit
 map <C-s> :w<Enter>
