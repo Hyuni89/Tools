@@ -9,6 +9,7 @@ set hlsearch
 set incsearch
 set clipboard=unnamedplus
 set foldmethod=syntax
+set foldlevel=100
 set backspace=indent,eol,start
 syntax on
 
@@ -18,10 +19,6 @@ map <C-k><C-b> :NERDTreeToggle<Enter>
 map <C-k><C-o> :TagbarToggle<Enter>
 nnoremap <C-k><C-m> :MarkdownPreview<Enter>
 nnoremap <C-k><C-m><C-m> :MarkdownPreviewStop<Enter>
-
-" Save, Quit
-map <C-s> :w<Enter>
-map <C-q> :q!<Enter>
 
 " Move Line
 map <A-Up> :m .-2<Enter>==

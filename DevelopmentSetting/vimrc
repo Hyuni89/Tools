@@ -9,7 +9,18 @@ set hlsearch
 set incsearch
 set clipboard=unnamedplus
 set foldmethod=syntax
+set foldlevel=100
 syntax on
+
+" Recognize 'ALT' key
+" There are two way for a terminal emulator to send 'ALT' key (8 bit characters for 'ALT' or escape sequences, ALT-A as ESC-A)
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+set timeout ttimeoutlen=50
 
 " Key Map Setting
 " PlugIn
@@ -17,16 +28,12 @@ map <C-k><C-b> :NERDTreeToggle<Enter>
 map <C-k><C-o> :TagbarToggle<Enter>
 nnoremap <C-k><C-m> :MarkdownPreview<Enter>
 nnoremap <C-k><C-m><C-m> :MarkdownPreviewStop<Enter>
-map <C-s> :w<Enter>
-map <C-q> :q!<Enter>
 
 " Move Line
-map <A-Up> :m .-2<Enter>==
-map <A-Down> :m .+1<Enter>==
-execute "set <M-j>=\ej"
-execute "set <M-k>=\ek"
-map <M-j> <A-Down>
-map <M-k> <A-Up>
+nnoremap <A-k> :m .-2<Enter>==
+nnoremap <A-j> :m .+1<Enter>==
+map <A-Down> <A-j>
+map <A-Up> <A-k>
 vnoremap <A-j> :'<,'>m '>+1<Enter>gv=gv
 vnoremap <A-k> :'<,'>m '<-2<Enter>gv=gv
 vmap <A-Up> <A-k>
