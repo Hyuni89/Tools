@@ -12,7 +12,7 @@ set clipboard=unnamedplus
 set foldmethod=syntax
 set foldlevel=100
 syntax on
-colorscheme custom
+colorscheme koehler
 
 " Recognize 'ALT' key
 " There are two way for a terminal emulator to send 'ALT' key (8 bit characters for 'ALT' or escape sequences, ALT-A as ESC-A)

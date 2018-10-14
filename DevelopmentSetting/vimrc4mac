@@ -13,7 +13,7 @@ set foldmethod=syntax
 set foldlevel=100
 set backspace=indent,eol,start
 syntax on
-colorscheme custom
+colorscheme koehler
 
 " Key Map Setting
 " PlugIn
