@@ -42,6 +42,10 @@ vnoremap ( xi()<Esc>hp
 vnoremap { xi{}<Esc>hp
 inoremap { {<Enter>}<Esc>k$a
 
+" Edit
+nnoremap <Space> i<Space><Esc>
+nnoremap <Enter> i<Enter><Esc>
+
 " Plugin Setting
 set nocompatible
 filetype off
