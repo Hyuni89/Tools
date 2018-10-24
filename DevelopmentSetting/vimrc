@@ -46,10 +46,10 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Bracket
-vnoremap [ xi[]<Esc>hp
-vnoremap ( xi()<Esc>hp
-vnoremap { xi{}<Esc>hp
-inoremap { {<Enter>}<Esc>k$a
+vnoremap [ diw[]<Esc>hp
+vnoremap ( diw()<Esc>hp
+vnoremap { diw{}<Esc>hp
+inoremap { {}<Esc>i
 
 " Edit
 nnoremap <Space> i<Space><Esc>
