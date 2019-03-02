@@ -45,3 +45,11 @@ fi
 # Vundle
 # git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+# fzf
+# brew install fzf
+# $(brew --prefix)/opt/fzf/install
+# set rtp+=/usr/local/opt/fzf
+# or
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# ~/.fzf/install
+# set rtp+=~/.fzf
