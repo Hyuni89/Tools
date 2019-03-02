@@ -24,6 +24,7 @@ map <C-k><C-b> :NERDTreeToggle<Enter>
 map <C-k><C-o> :TagbarToggle<Enter>
 nnoremap <C-k><C-m> :MarkdownPreview<Enter>
 nnoremap <C-k><C-m><C-m> :MarkdownPreviewStop<Enter>
+nnoremap <C-p> :FZF<Enter>
 
 " Move Line
 if has("mac")
@@ -57,9 +58,6 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Bracket
-vnoremap [ diw[]<Esc>hp
-vnoremap ( diw()<Esc>hp
-vnoremap { diw{}<Esc>hp
 inoremap { {}<Esc>i
 
 " Edit
@@ -79,8 +77,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
-Plugin 'kien/ctrlp.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
