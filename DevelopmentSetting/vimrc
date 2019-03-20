@@ -20,7 +20,7 @@ colorscheme koehler
 
 " Key Map Setting
 " PlugIn
-map <C-k><C-b> :NERDTreeToggle<Enter>
+map <C-k><C-e> :NERDTreeToggle<Enter>
 map <C-k><C-o> :TagbarToggle<Enter>
 nnoremap <C-k><C-m> :MarkdownPreview<Enter>
 nnoremap <C-k><C-m><C-m> :MarkdownPreviewStop<Enter>
@@ -58,11 +58,15 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Bracket
-inoremap { {}<Esc>i
+inoremap { {}<Left>
+inoremap {<Enter> {<Enter>}<Esc>O
 
 " Edit
 nnoremap <Space> i<Space><Esc>
 nnoremap <Enter> i<Enter><Esc>
+
+" Hightlight
+nnoremap <Esc><Esc> :noh<Enter>
 
 " Plugin Setting
 set nocompatible
@@ -90,9 +94,22 @@ Plugin 'iamcco/markdown-preview.vim'
 Plugin 'ZoomWin'
 Plugin 'mattn/emmet-vim'
 Plugin 'ap/vim-css-color'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 call vundle#end()
 filetype plugin indent on
 
 " Syntastic Setting
 let g:syntastic_cpp_compiler_options='-std=c++14'
+
+" Vim-cpp-enhanced-highlight Setting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+" let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
+
+" YouCompleteMe Setting
+let g:ycm_autoclose_preview_window_after_insertion = 1
