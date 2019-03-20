@@ -7,15 +7,13 @@ if [ $OS = "Linux" ]; then
 	sudo apt install update
 	sudo apt install upgrade
 	sudo apt install vim vim-gnome
-
-	ln -s vimrc ~/.vimrc
 elif [ $OS = "Dawin" ]; then
 	echo "Mac"
-
-	ln -s vimrc4mac ~/.vimrc
 else
 	exit
 fi
+
+ln -s vimrc ~/.vimrc
 
 # brew install
 # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
