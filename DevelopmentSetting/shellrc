@@ -1,5 +1,0 @@
-alias py="python3"
-alias l="ls -F"
-alias ll="ls -alF"
-alias sw="swift"
-stty -ixon
